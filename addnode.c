@@ -7,12 +7,12 @@
  *
  * Return: the address of the new element, or NULL.
  */
-argv_t *addnode(argv_t **head, const char *str)
+node_t *addnode(node_t **head, const char *str)
 {
-	argv_t *new, *ptr;
+	node_t *new, *ptr;
 	int i;
 
-	new = malloc(sizeof(argv_t));
+	new = malloc(sizeof(node_t));
 	if (new == NULL)
 		return (NULL);
 
