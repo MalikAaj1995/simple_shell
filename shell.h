@@ -16,3 +16,6 @@ typedef struct node
 } node_t;
 
 node_t *addnode(node_t **head, const char *str);
+char *_strdup(const char *str);
+
+#endif
