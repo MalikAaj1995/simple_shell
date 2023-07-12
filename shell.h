@@ -14,3 +14,5 @@ typedef struct node
 	char *str;
 	struct node *next;
 } node_t;
+
+node_t *addnode(node_t **head, const char *str);
