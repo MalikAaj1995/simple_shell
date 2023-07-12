@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <unistd.h>
 
+extern char **environ;
+
 /**
  * * struct node - singly linked list
  * @str: string.
