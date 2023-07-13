@@ -1,4 +1,4 @@
-#include "sheel.h"
+#include "shell.h"
 
 /**
  * main - mini shell
