@@ -20,13 +20,13 @@ int main(void)
 		if (eof == EOF)  /*check the end of a file*/
 			exit(EXIT_SUCCESS);
 		mynode = NULL;
-		ptr = strtok(buffer, " \n"); /*tokenize when there is a space or new line */
+		ptr = strtok(&buffer, " \n"); /*tokenize when there is a space or new line */
 		while (ptr) /*enter until the line finish*/
 		{
 			addnode(&mynode, ptr);
 			ptr = strtok(NULL, " \n");
 		}
-		list = nodetolist(mynode);
+		list = nodetolist(&mynode);
 		pid = fork(); /* create a child process*/
 		if (pid == 0)
 			execve(list[0], list, environ);
