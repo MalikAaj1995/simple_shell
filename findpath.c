@@ -33,3 +33,23 @@ void findpath(char *cmd)
 	}
 }
 
+/**
+ * _which - chec if a command exists
+ * @path: command path.
+ *
+ * Return: 0 if true, otherwise -1.
+ */
+int _which(char *path)
+{
+	struct stat st;
+
+	if (stat(path, &st) == 0)
+	{
+		if (S_ISDIR(st.st_mode) || access(path, F_OK | X_OK))
+		{
+			return (-1);
+		}
+		return (0);
+	}
+	return (-1);
+}
