@@ -27,9 +27,9 @@ int main(void)
 			addnode(&mynode, ptr);
 			ptr = strtok(NULL, " \n");
 		}
-		list = nodetolist(&mynode); /* convert linked list to list of array */
 		if (!list) /*if list is empty (only space or \n) got to the begining */
 			continue;
+		list = nodetolist(&mynode); /* convert linked list to list of array */
 		pid = fork(); /* create a child process*/
 		if (pid == 0)
 			execve(list[0], list, environ);
