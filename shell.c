@@ -32,6 +32,7 @@ int main(void)
 		if (pid == 0)
 			execve(list[0], list, environ);
 		wait(NULL);
+		freenode(mynode);
 	}
 	return (0);
 }
