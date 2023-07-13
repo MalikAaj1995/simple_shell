@@ -40,7 +40,7 @@ void freenode(node_t *head)
 	if (head)
 	{
 		if (head->str)
-			free(head->str)
+			free(head->str);
 		freenode(head->next);
 		free(head);
 	}
