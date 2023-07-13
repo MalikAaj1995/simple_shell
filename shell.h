@@ -25,5 +25,6 @@ char *_strdup(const char *str);
 char **nodetolist(node_t **head);
 void freenode(node_t *head);
 void findpath(char *cmd);
+int _which(char *path);
 
 #endif
