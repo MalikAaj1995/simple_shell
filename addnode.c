@@ -30,3 +30,18 @@ node_t *addnode(node_t **head, const char *str)
 	ptr->next = new;
 	return (new);
 }
+
+/**
+ * freenode - free linked list
+ * @head: pointer to the first node.
+ */
+void freenode(node_t *head)
+{
+	if (head)
+	{
+		if (head->str)
+			free(head->str)
+		freenode(head->next);
+		free(head);
+	}
+}
