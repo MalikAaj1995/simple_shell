@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	int eof, i;
+	int eof;
 	size_t n = 1024;;
 	char *buffer, *ptr;
 	node_t *list;
@@ -29,7 +29,7 @@ int main(void)
 		pid = fork(); /* create a child process*/
 		if (pid == 0)
 			execve(list->str, list, environ);
-		wait();
+		wait(NULL);
 	}
 	return (0);
 }
