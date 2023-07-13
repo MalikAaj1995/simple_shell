@@ -27,12 +27,14 @@ int main(void)
 			addnode(&mynode, ptr);
 			ptr = strtok(NULL, " \n");
 		}
-		list = nodetolist(&mynode);
+		list = nodetolist(&mynode); /* convert linked list to list of array */
+		if (!list) /*if list is empty (only space or \n) got to the begining */
+			continue;
 		pid = fork(); /* create a child process*/
 		if (pid == 0)
 			execve(list[0], list, environ);
-		wait(NULL);
-		freenode(mynode);
+		wait(NULL); /*stop parent process until child exit */
+		freenode(mynode); /* free lnked list */
 	}
 	return (0);
 }
