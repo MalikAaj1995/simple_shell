@@ -8,7 +8,8 @@
  */
 char **nodetolist(node_t **head)
 {
-	char **list, *ptr;
+	char **list;
+	node_t *ptr;
 	int i;
 
 	ptr = *head;
@@ -18,7 +19,7 @@ char **nodetolist(node_t **head)
 	ptr = *head;
 	for (i = 0; ptr; i++)
 	{
-		list[i] = _strdup(ptr);
+		list[i] = _strdup(ptr->str);
 		ptr = ptr->next;
 	}
 	list[i] = NULL;
