@@ -27,7 +27,7 @@ int main(void)
 			addnode(&mynode, ptr);
 			ptr = strtok(NULL, " \n");
 		}
-		if (!mynode->str) /*if mynode is empty (only space or \n) got to the begining */
+		if (!mynode) /*if mynode is empty (only space or \n) got to the begining */
 			continue;
 		list = nodetolist(&mynode); /* convert linked list to list of array */
 		pid = fork(); /* create a child process*/
