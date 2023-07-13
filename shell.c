@@ -7,20 +7,21 @@
  */
 int main(void)
 {
-	int eof;
-	size_t n = 1024;;
-	char *buffer, *ptr, **list;
+	size_t n = 1024;
+	char *buffer, *ptr;
+	char **list, eof;
 	node_t *mynode;
 	pid_t pid;
 
 	buffer = malloc(n);
 	while (1)
 	{
+		printf("$ ");
 		eof = getline(&buffer, &n, stdin); /* read the line from stdin*/
 		if (eof == EOF)  /*check the end of a file*/
 			exit(EXIT_SUCCESS);
 		mynode = NULL;
-		ptr = strtok(&buffer, " \n"); /*tokenize when there is a space or new line */
+		ptr = strtok(buffer, " \n"); /*tokenize when there is a space or new line */
 		while (ptr) /*enter until the line finish*/
 		{
 			addnode(&mynode, ptr);
