@@ -28,3 +28,47 @@ char *_strdup(const char *str)
 	p[size] = '\0';
 	return (p);
 }
+
+/**
+ *  * _strcat - concatenate two strings.
+ *   * @dest: pointer to string.
+ *    * @src: pointer to string.
+ *     *
+ *      * Return: pointer to dest.
+ *       */
+char *_strcat(char *dest, char *src)
+{
+	char *cat = dest;
+
+	while (*dest != '\0')
+	{
+		dest++;
+	}
+	while (*src != '\0')
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+	return (cat);
+}
+
+/**
+ *  * _strlen - return the length of a string.
+ *   * @s: pointer to char.
+ *    *
+ *     * Return: the length of string.
+ *      */
+int _strlen(char *s)
+{
+	char *p = s;
+	int count = 0;
+
+	while (*p != '\0')
+	{
+		count++;
+		p++;
+	}
+	return (count);
+}
