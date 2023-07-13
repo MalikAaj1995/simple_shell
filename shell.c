@@ -30,6 +30,7 @@ int main(void)
 		}
 		if (!mynode) /*if mynode is empty (only space or \n) got to the begining */
 			continue;
+		findpath(mynode->str);
 		list = nodetolist(&mynode); /* convert linked list to list of array */
 		pid = fork(); /* create a child process*/
 		if (pid == 0)
