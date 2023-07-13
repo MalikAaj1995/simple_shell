@@ -26,5 +26,7 @@ char **nodetolist(node_t **head);
 void freenode(node_t *head);
 void findpath(char *cmd);
 int _which(char *path);
+char *_strcat(char *dest, char *src);
+int _strlen(char *s);
 
 #endif
