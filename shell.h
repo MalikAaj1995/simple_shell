@@ -29,5 +29,6 @@ char *findpath(char *cmd);
 int _which(char *path);
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
+int _strcmp(char *s1, char *s2);
 
 #endif
