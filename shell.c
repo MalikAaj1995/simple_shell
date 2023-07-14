@@ -13,9 +13,9 @@ int main(void)
 	node_t *mynode;
 	pid_t pid;
 
+	buffer = malloc(n);
 	while (1)
 	{
-		buffer = malloc(n);
 		if (isatty(STDIN_FILENO))
 			printf("$ ");
 		eof = getline(&buffer, &n, stdin); /* read the line from stdin*/
@@ -43,7 +43,6 @@ int main(void)
 			execve(list[0], list, environ);
 		wait(NULL); /*stop parent process until child exit */
 		freenode(mynode); /* free lnked list */
-		free(buffer);
 	}
 	return (0);
 }
