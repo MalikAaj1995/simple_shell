@@ -7,6 +7,7 @@
 void findpath(char *cmd)
 {
 	char *path, *dir, *new;
+	int pass = 0;
 
 	if (_which(cmd))
 	{
@@ -22,14 +23,18 @@ void findpath(char *cmd)
 				free(path);
 				free(cmd);
 				cmd = new;
+				pass = 1;
 				break;
 			}
 			dir = strtok(NULL, ":");
 			free(new);
 		}
-		free(path);
-		free(cmd);
-		cmd = NULL;
+		if (!pass)
+		{
+			free(path);
+			free(cmd);
+			cmd = NULL;
+		}
 	}
 }
 
