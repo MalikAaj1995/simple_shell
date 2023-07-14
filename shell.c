@@ -31,7 +31,7 @@ int main(void)
 		if (!mynode) /*if mynode is empty (only space or \n) got to the begining */
 			continue;
 		mynode->str = findpath(mynode->str);
-		if (_strcmp(mynode->str, "exit"))
+		if (_strcmp(mynode->str, "exit") == 0)
 		{
 			free(buffer);
 			freenode(mynode);
