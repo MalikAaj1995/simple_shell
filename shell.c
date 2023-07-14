@@ -9,7 +9,7 @@ int main(void)
 {
 	size_t n = 1024;
 	char *buffer, *ptr;
-	char **list, eof;
+	char **list, eof, *exit_n = "exit";
 	node_t *mynode;
 	pid_t pid;
 
@@ -30,13 +30,13 @@ int main(void)
 		}
 		if (!mynode) /*if mynode is empty (only space or \n) got to the begining */
 			continue;
-		mynode->str = findpath(mynode->str);
-		if (_strcmp(mynode->str, "exit") == 0)
+		if (_strcmp(mynode->str, exit_n) == 0)
 		{
 			free(buffer);
 			freenode(mynode);
 			exit(EXIT_SUCCESS);
 		}
+		mynode->str = findpath(mynode->str);
 		list = nodetolist(&mynode); /* convert linked list to list of array */
 		pid = fork(); /* create a child process*/
 		if (pid == 0)
