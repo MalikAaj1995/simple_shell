@@ -25,3 +25,19 @@ char **nodetolist(node_t **head)
 	list[i] = NULL;
 	return (list);
 }
+
+/**
+ * freelist - free list of array
+ * @list: list of array.
+ */
+void freelist(char **list)
+{
+	int i = 0;
+
+	while (list[i] != NULL)
+	{
+		free(list[i]);
+		i++;
+	}
+	free(list);
+}
