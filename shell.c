@@ -13,9 +13,9 @@ int main(void)
 	node_t *mynode;
 	pid_t pid;
 
-	buffer = malloc(n);
 	while (1)
 	{
+		buffer = malloc(n);
 		if (isatty(STDIN_FILENO))
 			printf("$ ");
 		eof = getline(&buffer, &n, stdin); /* read the line from stdin*/
@@ -31,12 +31,19 @@ int main(void)
 		if (!mynode) /*if mynode is empty (only space or \n) got to the begining */
 			continue;
 		mynode->str = findpath(mynode->str);
+		if (_strcmp(mynode->str, "exit"))
+		{
+			free(buffer);
+			freenode(mynode);
+			exit(EXIT_SUCCESS);
+		}
 		list = nodetolist(&mynode); /* convert linked list to list of array */
 		pid = fork(); /* create a child process*/
 		if (pid == 0)
 			execve(list[0], list, environ);
 		wait(NULL); /*stop parent process until child exit */
 		freenode(mynode); /* free lnked list */
+		free(buffer);
 	}
 	return (0);
 }
