@@ -10,7 +10,7 @@
 #include <errno.h>
 
 extern char **environ;
-extern int *errno;
+extern int errno;
 
 /**
  * * struct node - singly linked list
