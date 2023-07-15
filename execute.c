@@ -8,26 +8,27 @@
  */
 int execute(node_t *mynode)
 {
-	char **list, *old;
+	char **list, *cmd;
 	pid_t pid;
 
-	old = mynode->str;
-	mynode->str = findpath(mynode->str);
-	if (mynode->str == NULL)
+	cmd = findpath(mynode->str);
+	if (cmd == NULL)
 	{
-		perror(old);
+		perror(mynode->str);
 		return (-1);
 	}
 	list = nodetolist(&mynode);
 	pid = fork();
 	if (pid == 0)
 	{
-		execve(list[0], list, environ);
+		execve(cmd, list, environ);
+		free(cmd);
 		freenode(mynode);
 		freelist(list);
 		exit(EXIT_FAILURE);
 	}
 	wait(NULL);
+	free(cmd);
 	freenode(mynode);
 	freelist(list);
 	return (0);
