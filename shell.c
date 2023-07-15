@@ -15,6 +15,7 @@ int main(void)
 	buffer = malloc(n);
 	while (1)
 	{
+		errno = 0;
 		if (isatty(STDIN_FILENO))
 			printf("$ ");
 		eof = getline(&buffer, &n, stdin); /* read the line from stdin*/
