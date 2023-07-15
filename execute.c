@@ -10,10 +10,15 @@ int execute(node_t *mynode)
 {
 	char **list, *cmd;
 	pid_t pid;
+	static int n = 1;
 
+	if (n != 1)
+		n++;
 	cmd = findpath(mynode->str);
 	if (cmd == NULL)
-	{
+	{ 
+		write(1, &n, 3);
+		write(1, ": ", 2);
 		perror(mynode->str);
 		freenode(mynode);
 		return (-1);
