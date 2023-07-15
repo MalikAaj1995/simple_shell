@@ -20,14 +20,12 @@ char *findpath(char *cmd)
 			if (!_which(new))
 			{
 				free(path);
-				free(cmd);
 				return (new);
 			}
 			dir = strtok(NULL, ":");
 			free(new);
 		}
 		free(path);
-		free(cmd);
 		return (NULL);
 	}
 	return (cmd);
