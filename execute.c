@@ -15,6 +15,7 @@ int execute(node_t *mynode)
 	if (cmd == NULL)
 	{
 		perror(mynode->str);
+		freenode(mynode);
 		return (-1);
 	}
 	list = nodetolist(&mynode);
