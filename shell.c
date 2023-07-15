@@ -33,7 +33,7 @@ int main(void)
 		{
 			free(buffer);
 			freenode(mynode);
-			exit(EXIT_SUCCESS);
+			exit(errno);
 		}
 		execute(mynode);
 	}
