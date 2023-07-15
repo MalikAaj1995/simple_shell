@@ -7,8 +7,10 @@
 #include <string.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <errno.h>
 
 extern char **environ;
+extern int *errno;
 
 /**
  * * struct node - singly linked list
