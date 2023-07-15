@@ -45,6 +45,7 @@ int _which(char *path)
 	{
 		if (S_ISDIR(st.st_mode) || access(path, F_OK | X_OK))
 		{
+			errno = 126;
 			return (-1);
 		}
 		return (0);
