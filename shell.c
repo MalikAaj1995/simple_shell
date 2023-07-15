@@ -9,9 +9,8 @@ int main(void)
 {
 	size_t n = 1024;
 	char *buffer, *ptr;
-	char **list, eof, *exit_n = "exit";
+	char eof, *exit_n = "exit";
 	node_t *mynode;
-	pid_t pid;
 
 	buffer = malloc(n);
 	while (1)
