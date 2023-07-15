@@ -10,6 +10,7 @@ int execute(node_t *mynode)
 {
 	char **list, *cmd;
 	pid_t pid;
+	int status;
 	static int n = 1;
 
 	if (n != 1)
@@ -33,9 +34,11 @@ int execute(node_t *mynode)
 		freelist(list);
 		exit(EXIT_FAILURE);
 	}
-	wait(NULL);
+	wait(&status);
 	free(cmd);
 	freenode(mynode);
 	freelist(list);
+	if (!WIFEXITED(status))
+		return (-1);
 	return (0);
 }
