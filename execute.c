@@ -11,7 +11,7 @@ int execute(node_t *mynode)
 	char **list, *old;
 	pid_t pid;
 
-	old = mynnode->str;
+	old = mynode->str;
 	mynode->str = findpath(mynode->str);
 	if (mynode->str == NULL)
 	{
