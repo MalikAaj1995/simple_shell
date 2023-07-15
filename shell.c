@@ -36,13 +36,7 @@ int main(void)
 			freenode(mynode);
 			exit(EXIT_SUCCESS);
 		}
-		mynode->str = findpath(mynode->str);
-		list = nodetolist(&mynode); /* convert linked list to list of array */
-		pid = fork(); /* create a child process*/
-		if (pid == 0)
-			execve(list[0], list, environ);
-		wait(NULL); /*stop parent process until child exit */
-		freenode(mynode); /* free lnked list */
+		execute(mynode);
 	}
 	return (0);
 }
