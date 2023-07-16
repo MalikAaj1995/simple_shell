@@ -2,23 +2,21 @@
 
 /**
  * execute - execute commands with it's argument
- * @mynode: linked list of commands with arguments.
+ * @line: linked list of commands.
  *
  * Return: 0 if true, otherwise -1.
  */
-int execute(node_t *mynode)
+int execute(node_t *line)
 {
 	char **list, *cmd;
 	pid_t pid;
 	int status;
-	static int n = 1;
+	node_t *mynode;
 
-	if (n != 1)
-		n++;
+	mynode = tokenize(line->next->str);
 	cmd = findpath(mynode->str);
 	if (cmd == NULL)
 	{ 
-		write(1, &n, 3);
 		write(1, ": ", 2);
 		perror(mynode->str);
 		freenode(mynode);
@@ -30,6 +28,7 @@ int execute(node_t *mynode)
 	{
 		execve(cmd, list, environ);
 		free(cmd);
+		freenode(line);
 		freenode(mynode);
 		freelist(list);
 		exit(EXIT_FAILURE);

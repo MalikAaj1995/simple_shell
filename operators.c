@@ -9,44 +9,42 @@
 int operators(char *line)
 {
 	char *start, *c;
-	node_t *tokens;
+	node_t *commands;
 
-	start = c = line;
-	while (c != '\n')
+	addnode(&commands, NULL);
+	addnode(&commands, NULL);
+	commands->str = line;
+	commands->next->str = start = line;
+	while (start != '\n')
 	{
-		if (_strncmp(c, " #", 2))
+		if (_strncmp(start, " #", 2))
 		{
-			c[0] = '\0';
-			tokens = tokenize(start);
-			execute(tokens);
+			start[0] = '\0';
+			execute(commands);
 			return (0);
 		}
-		else if (_strncmp(c, " ; ", 3))
+		else if (_strncmp(start, " ; ", 3))
 		{
-			c[0] = '\0';
-			tokens = tokenize(start);
-			execute(tokens);
-			start = c + 3;
+			start[0] = '\0';
+			execute(commands);
+			commands->next->str = start + 3;
 		}
-		else if (_strncmp(c, " && ", 4))
+		else if (_strncmp(start, " && ", 4))
 		{
-			c[0] = '\0';
-			tokens = tokenize(start);
-			if (!execute(tokens))
+			start[0] = '\0';
+			if (!execute(commands))
 				return (0);
-			start = c + 4;
+			commands->next->str = start + 4;
 		}
-		else if (_strncmp(c, " || ", 4))
+		else if (_strncmp(start, " || ", 4))
 		{
-			c[0] = '\0';
-			tokens = tokenize(start);
-			if (execute(tokens))
+			start[0] = '\0';
+			if (execute(commands))
 				return (0);
-			start = c + 4;
+			commands->next->str = start + 4;
 		}
-		c++;
+		start++;
 	}
-	tokens = tokenize(start);
-	execute(tokens);
+	execute(commands);
 	return (1);
 }
