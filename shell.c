@@ -10,7 +10,7 @@ int main(void)
 	size_t n = 1024;
 	char *buffer, *ptr;
 	char eof, *exit_n = "exit";
-	node_t *mynode;
+	/*node_t *mynode;*/
 
 	buffer = malloc(n);
 	while (1)
@@ -21,22 +21,23 @@ int main(void)
 		eof = getline(&buffer, &n, stdin); /* read the line from stdin*/
 		if (eof == EOF)  /*check the end of a file*/
 			exit(EXIT_SUCCESS);
-		mynode = NULL;
-		ptr = strtok(buffer, " \n"); /*tokenize when there is a space or new line */
-		while (ptr) /*enter until the line finish*/
+		/*mynode = NULL;
+		ptr = strtok(buffer, " \n");
+		while (ptr)
 		{
 			addnode(&mynode, ptr);
 			ptr = strtok(NULL, " \n");
 		}
-		if (!mynode) /*if mynode is empty (only space or \n) got to the begining */
-			continue;
-		if (_strcmp(mynode->str, exit_n) == 0)
+		if (!mynode)
+			continue;*/
+		/*if (_strcmp(mynode->str, exit_n) == 0)
 		{
 			free(buffer);
 			freenode(mynode);
 			exit(errno);
 		}
-		execute(mynode);
+		execute(mynode);*/
+		operators(buffer);
 	}
 	return (0);
 }
