@@ -34,5 +34,6 @@ int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 void freelist(char **list);
 int execute(node_t *mynode);
+int _strncmp(char *s1, char *s2, int len);
 
 #endif

@@ -94,3 +94,28 @@ int _strcmp(char *s1, char *s2)
 	}
 	return (cmp);
 }
+
+/**
+ *  * _strncmp - compare two strings.
+ *   * @s1: string 1.
+ *    * @s2: string 2.
+ *     * @len: length.
+ *      *
+ *       * Return: int.
+ *        */
+int _strncmp(char *s1, char *s2, int len)
+{
+	int cmp = 0, i;
+
+	i = 0;
+	while (cmp == 0 && i < len)
+	{
+		if ((*s1 == '\0') && (*s2 == '\0'))
+			break;
+		cmp = *s1 - *s2;
+		s1++;
+		s2++;
+		i++;
+	}
+	return (cmp);
+}
