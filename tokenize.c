@@ -6,12 +6,10 @@
  *
  * Return: tokenized linked list.*
  */
-node_t *tokenize(char *line)
+node_t *tokenize(char *line, node_t *mynode)
 {
-	node_t *mynode;
 	char *ptr;
 
-	mynode = NULL;
 	ptr = strtok(line, " \n");
 	while (ptr)
 	{
