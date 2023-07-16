@@ -8,8 +8,8 @@
 int main(void)
 {
 	size_t n = 1024;
-	char *buffer, *ptr;
-	char eof, *exit_n = "exit";
+	char *buffer;
+	char eof;
 	/*node_t *mynode;*/
 
 	buffer = malloc(n);

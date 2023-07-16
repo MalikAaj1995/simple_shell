@@ -8,14 +8,14 @@
  */
 int operators(char *line)
 {
-	char *start, *c;
+	char *start;
 	node_t *commands;
 
 	addnode(&commands, NULL);
 	addnode(&commands, NULL);
 	commands->str = line;
 	commands->next->str = start = line;
-	while (start != '\n')
+	while (*start != '\n')
 	{
 		if (_strncmp(start, " #", 2))
 		{
