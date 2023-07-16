@@ -29,5 +29,7 @@ void findpath(char *cmd);
 int _which(char *path);
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
+char *custom_getline();
+void processTokens(char *str, const char *delimiters);
 
 #endif
