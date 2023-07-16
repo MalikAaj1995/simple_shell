@@ -11,8 +11,8 @@ int operators(char *line)
 	char *start;
 	node_t *commands;
 
-	addnode(&commands, NULL);
-	addnode(&commands, NULL);
+	commands = malloc(sizeof(node_t));
+	commands->next = malloc(sizeof(node_t));
 	commands->str = line;
 	commands->next->str = start = line;
 	while (*start != '\n')
