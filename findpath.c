@@ -4,7 +4,7 @@
  * findpath - find the path of a command
  * @cmd: command.
  */
-void findpath(char *cmd)
+char *findpath(char *cmd)
 {
 	char *path, *dir, *new;
 
@@ -14,23 +14,21 @@ void findpath(char *cmd)
 		dir = strtok(path, ":");
 		while (dir)
 		{
-			new = malloc(_strlen(dir) + _strlen(cmd) + 2);
+			new = malloc(_strlen(dir) + _strlen(cmd) + 3);
 			_strcat(new, dir);
 			_strcat(_strcat(new, "/"), cmd);
-			if (!_which(cmd))
+			if (!_which(new))
 			{
 				free(path);
-				free(cmd);
-				cmd = new;
-				break;
+				return (new);
 			}
 			dir = strtok(NULL, ":");
 			free(new);
 		}
 		free(path);
-		free(cmd);
-		cmd = NULL;
+		return (NULL);
 	}
+	return (cmd);
 }
 
 /**
@@ -47,6 +45,7 @@ int _which(char *path)
 	{
 		if (S_ISDIR(st.st_mode) || access(path, F_OK | X_OK))
 		{
+			errno = 126;
 			return (-1);
 		}
 		return (0);

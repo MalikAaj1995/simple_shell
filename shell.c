@@ -9,13 +9,13 @@ int main(void)
 {
 	size_t n = 1024;
 	char *buffer, *ptr;
-	char **list, eof;
+	char eof, *exit_n = "exit";
 	node_t *mynode;
-	pid_t pid;
 
 	buffer = malloc(n);
 	while (1)
 	{
+		errno = 0;
 		if (isatty(STDIN_FILENO))
 			printf("$ ");
 		eof = getline(&buffer, &n, stdin); /* read the line from stdin*/
@@ -30,13 +30,13 @@ int main(void)
 		}
 		if (!mynode) /*if mynode is empty (only space or \n) got to the begining */
 			continue;
-		findpath(mynode->str);
-		list = nodetolist(&mynode); /* convert linked list to list of array */
-		pid = fork(); /* create a child process*/
-		if (pid == 0)
-			execve(list[0], list, environ);
-		wait(NULL); /*stop parent process until child exit */
-		freenode(mynode); /* free lnked list */
+		if (_strcmp(mynode->str, exit_n) == 0)
+		{
+			free(buffer);
+			freenode(mynode);
+			exit(errno);
+		}
+		execute(mynode);
 	}
 	return (0);
 }
