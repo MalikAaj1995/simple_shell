@@ -17,31 +17,31 @@ int operators(char *line)
 	commands->next->str = start = line;
 	while (*start != '\n')
 	{
-		if (_strncmp(start, " #", 2))
+		if (_strncmp(start, " #", 2) == 0)
 		{
 			start[0] = '\0';
 			execute(commands);
 			return (0);
 		}
-		else if (_strncmp(start, " ; ", 3))
+		else if (_strncmp(start, " ; ", 3) == 0)
 		{
 			start[0] = '\0';
 			execute(commands);
-			commands->next->str = start + 3;
+			commands->next->str = start + 2;
 		}
-		else if (_strncmp(start, " && ", 4))
+		else if (_strncmp(start, " && ", 4) == 0)
 		{
 			start[0] = '\0';
 			if (!execute(commands))
 				return (0);
-			commands->next->str = start + 4;
+			commands->next->str = start + 3;
 		}
-		else if (_strncmp(start, " || ", 4))
+		else if (_strncmp(start, " || ", 4) == 0)
 		{
 			start[0] = '\0';
 			if (execute(commands))
 				return (0);
-			commands->next->str = start + 4;
+			commands->next->str = start + 3;
 		}
 		start++;
 	}

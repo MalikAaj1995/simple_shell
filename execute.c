@@ -14,7 +14,7 @@ int execute(node_t *line)
 	node_t *mynode;
 
 	mynode = NULL;
-	tokenize(line->next->str, mynode);
+	tokenize(line->next->str, &mynode);
 	/*if (!mynode)
 		return (0);*/
 	cmd = findpath(mynode->str);

@@ -36,6 +36,6 @@ void freelist(char **list);
 int execute(node_t *list);
 int _strncmp(char *s1, char *s2, int len);
 int operators(char *line);
-node_t *tokenize(char *line, node_t *mynode);
+void tokenize(char *line, node_t **mynode);
 
 #endif
