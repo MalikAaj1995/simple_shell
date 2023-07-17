@@ -10,7 +10,10 @@ int operators(char *line)
 {
 	char *start;
 	node_t *commands;
+	static int n = 1;
 
+	if (n != 1)
+		n++;
 	commands = malloc(sizeof(node_t));
 	commands->next = malloc(sizeof(node_t));
 	commands->str = line;
