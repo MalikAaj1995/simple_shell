@@ -23,31 +23,31 @@ int operators(char *line)
 		if (_strncmp(start, " #", 2) == 0)
 		{
 			start[0] = '\0';
-			execute(commands);
+			execute(commands, n);
 			return (0);
 		}
 		else if (_strncmp(start, " ; ", 3) == 0)
 		{
 			start[0] = '\0';
-			execute(commands);
+			execute(commands, n);
 			commands->next->str = start + 2;
 		}
 		else if (_strncmp(start, " && ", 4) == 0)
 		{
 			start[0] = '\0';
-			if (!execute(commands))
+			if (!execute(commands, n))
 				return (0);
 			commands->next->str = start + 3;
 		}
 		else if (_strncmp(start, " || ", 4) == 0)
 		{
 			start[0] = '\0';
-			if (execute(commands))
+			if (execute(commands, n))
 				return (0);
 			commands->next->str = start + 3;
 		}
 		start++;
 	}
-	execute(commands);
+	execute(commands, n);
 	return (1);
 }

@@ -3,10 +3,11 @@
 /**
  * execute - execute commands with it's argument
  * @line: linked list of commands.
+ * @n: line number.
  *
  * Return: 0 if true, otherwise -1.
  */
-int execute(node_t *line)
+int execute(node_t *line, int n)
 {
 	char **list, *cmd;
 	pid_t pid;
