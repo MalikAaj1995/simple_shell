@@ -18,9 +18,17 @@ int execute(node_t *line, int n)
 	tokenize(line->next->str, &mynode);
 	if (!mynode)
 		return (0);
+	if (_strcmp(mynode->str, exit_n) == 0)
+	{
+		freenode(list);
+		freenode(mynode);
+		exit(errno);
+	}
 	cmd = findpath(mynode->str);
 	if (cmd == NULL)
-	{ 
+	{
+		write(1, ": ", 2);
+		write(1, &(n + '0'), 3);
 		write(1, ": ", 2);
 		perror(mynode->str);
 		freenode(mynode);
