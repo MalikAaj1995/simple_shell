@@ -9,7 +9,7 @@
  */
 int execute(node_t *line, int n)
 {
-	char **list, *cmd;
+	char **list, *cmd, *exit_n = "exit";
 	pid_t pid;
 	int status;
 	node_t *mynode;
@@ -20,7 +20,7 @@ int execute(node_t *line, int n)
 		return (0);
 	if (_strcmp(mynode->str, exit_n) == 0)
 	{
-		freenode(list);
+		freenode(line);
 		freenode(mynode);
 		exit(errno);
 	}
@@ -28,7 +28,7 @@ int execute(node_t *line, int n)
 	if (cmd == NULL)
 	{
 		write(1, ": ", 2);
-		write(1, &(n + '0'), 3);
+		write(1, &n, 3);
 		write(1, ": ", 2);
 		perror(mynode->str);
 		freenode(mynode);
