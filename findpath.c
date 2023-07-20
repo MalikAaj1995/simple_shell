@@ -50,6 +50,5 @@ int _which(char *path)
 		}
 		return (0);
 	}
-	errno = 127;
 	return (-1);
 }
