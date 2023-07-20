@@ -13,6 +13,7 @@ int main(void)
 	/*node_t *mynode;*/
 
 	buffer = malloc(n);
+	errno = 0;
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))

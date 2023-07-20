@@ -20,6 +20,7 @@ int execute(node_t *line, int n)
 		return (0);
 	if (_strcmp(mynode->str, exit_n) == 0)
 	{
+		line->next->str = NULL;
 		freenode(line);
 		freenode(mynode);
 		exit(errno);
@@ -40,6 +41,7 @@ int execute(node_t *line, int n)
 	{
 		execve(cmd, list, environ);
 		free(cmd);
+		line->next->str = NULL;
 		freenode(line);
 		freenode(mynode);
 		freelist(list);

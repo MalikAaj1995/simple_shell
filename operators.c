@@ -18,6 +18,7 @@ int operators(char *line)
 	commands->next = malloc(sizeof(node_t));
 	commands->str = line;
 	commands->next->str = start = line;
+	commands->next->next = NULL;
 	while (*start != '\n')
 	{
 		if (_strncmp(start, " #", 2) == 0)
