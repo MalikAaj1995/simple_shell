@@ -25,6 +25,11 @@ int execute(node_t *line, int n)
 		freenode(mynode);
 		exit(errno);
 	}
+	else if (_strcmp(mynode->str, "env") == 0)
+	{
+		env();
+		return (0);
+	}
 	cmd = findpath(mynode->str);
 	if (cmd == NULL)
 	{
