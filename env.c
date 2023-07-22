@@ -9,6 +9,8 @@ void env(void)
 
 	for (i = 0; environ[i]; i++)
 	{
+		if (_strncmp(environ[i], "_=", 2) == 0)
+			continue;
 		for (j = 0; environ[i][j]; j++)
 		{
 			write(1, &environ[i][j], 1);
