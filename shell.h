@@ -38,5 +38,6 @@ int _strncmp(char *s1, char *s2, int len);
 int operators(char *line);
 void tokenize(char *line, node_t **mynode);
 void env(void);
+void _sigint(int sign);
 
 #endif
