@@ -10,8 +10,8 @@ int main(void)
 	size_t n = 1024;
 	char *buffer;
 	char eof;
-	/*node_t *mynode;*/
 
+	signal(SIGINT, _sigint);
 	buffer = malloc(n);
 	errno = 0;
 	while (1)
@@ -21,23 +21,16 @@ int main(void)
 		eof = getline(&buffer, &n, stdin); /* read the line from stdin*/
 		if (eof == EOF)  /*check the end of a file*/
 			exit(EXIT_SUCCESS);
-		/*mynode = NULL;
-		ptr = strtok(buffer, " \n");
-		while (ptr)
-		{
-			addnode(&mynode, ptr);
-			ptr = strtok(NULL, " \n");
-		}
-		if (!mynode)
-			continue;*/
-		/*if (_strcmp(mynode->str, exit_n) == 0)
-		{
-			free(buffer);
-			freenode(mynode);
-			exit(errno);
-		}
-		execute(mynode);*/
 		operators(buffer);
 	}
 	return (0);
+}
+
+/**
+ * _sigint - handle SIGINT signal
+ * @sigm: signal.
+ */
+void _sigint(__attribute__((unused)) int sign)
+{
+	write(1, "\n$ ", 3);
 }

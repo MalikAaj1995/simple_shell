@@ -25,6 +25,7 @@ char *findpath(char *cmd)
 			dir = strtok(NULL, ":");
 			free(new);
 		}
+		errno = 127;
 		free(path);
 		return (NULL);
 	}
@@ -32,7 +33,7 @@ char *findpath(char *cmd)
 }
 
 /**
- * _which - chec if a command exists
+ * _which - check if a command exists
  * @path: command path.
  *
  * Return: 0 if true, otherwise -1.
