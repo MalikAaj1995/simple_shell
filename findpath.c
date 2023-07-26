@@ -3,6 +3,8 @@
 /**
  * findpath - find the path of a command
  * @cmd: command.
+ *
+ * Return: command path, otherwise NULL.
  */
 char *findpath(char *cmd)
 {

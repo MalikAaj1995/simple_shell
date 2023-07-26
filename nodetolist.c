@@ -3,7 +3,7 @@
 /**
  * nodetolist - convert struct node to a list.
  * @head: pointer to the linked list.
- * 
+ *
  * Return: list.
  */
 char **nodetolist(node_t **head)

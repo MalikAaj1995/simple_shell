@@ -3,6 +3,7 @@
 /**
  * tokenize - tokenize a line using strtok
  * @line: command line.
+ * @mynode: linked list.
  *
  * Return: tokenized linked list.*
  */

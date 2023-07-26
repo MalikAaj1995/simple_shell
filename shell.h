@@ -15,7 +15,7 @@ extern int errno;
 /**
  * * struct node - singly linked list
  * @str: string.
- * @next pointer to next node.
+ * @next: pointer to next node.
  */
 typedef struct node
 {

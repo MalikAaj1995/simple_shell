@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- *  * _strdup - copy a string to allocated memory.
- *   * @str: pointer to string.
- *    *
- *     * Return: the pointer to allocated memory, otherwise NULL.
- *      */
+ * _strdup - copy a string to allocated memory.
+ * @str: pointer to string.
+ *
+ * Return: the pointer to allocated memory, otherwise NULL.
+ */
 char *_strdup(const char *str)
 {
 	char *p;
@@ -30,12 +30,12 @@ char *_strdup(const char *str)
 }
 
 /**
- *  * _strcat - concatenate two strings.
- *   * @dest: pointer to string.
- *    * @src: pointer to string.
- *     *
- *      * Return: pointer to dest.
- *       */
+ * _strcat - concatenate two strings.
+ * @dest: pointer to string.
+ * @src: pointer to string.
+ *
+ * Return: pointer to dest.
+ */
 char *_strcat(char *dest, char *src)
 {
 	char *cat = dest;
@@ -55,11 +55,11 @@ char *_strcat(char *dest, char *src)
 }
 
 /**
- *  * _strlen - return the length of a string.
- *   * @s: pointer to char.
- *    *
- *     * Return: the length of string.
- *      */
+ * _strlen - return the length of a string.
+ * @s: pointer to char.
+ *
+ * Return: the length of string.
+ */
 int _strlen(char *s)
 {
 	char *p = s;
@@ -74,12 +74,12 @@ int _strlen(char *s)
 }
 
 /**
- *  * _strcmp - compare two strings.
- *   * @s1: string 1.
- *    * @s2: string 2.
- *     *
- *      * Return: int.
- *       */
+ * _strcmp - compare two strings.
+ * @s1: string 1.
+ * @s2: string 2.
+ *
+ * Return: int.
+ */
 int _strcmp(char *s1, char *s2)
 {
 	int cmp = 0;
@@ -96,13 +96,13 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- *  * _strncmp - compare two strings.
- *   * @s1: string 1.
- *    * @s2: string 2.
- *     * @len: length.
- *      *
- *       * Return: int.
- *        */
+ * _strncmp - compare two strings.
+ * @s1: string 1.
+ * @s2: string 2.
+ * @len: length.
+ *
+ * Return: int.
+ */
 int _strncmp(char *s1, char *s2, int len)
 {
 	int cmp = 0, i;

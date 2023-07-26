@@ -28,7 +28,7 @@ int main(void)
 
 /**
  * _sigint - handle SIGINT signal
- * @sigm: signal.
+ * @sign: signal.
  */
 void _sigint(__attribute__((unused)) int sign)
 {
